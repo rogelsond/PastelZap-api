@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:8080
+@token = troque-por-um-token-com-pelo-menos-32-caracteres
+
+GET {{baseUrl}}/health
+
+###
+POST {{baseUrl}}/categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"name":"Bebidas"}
+
+###
+POST {{baseUrl}}/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"name":"Refrigerante","category_id":1,"price_cents":800}
+
+###
+POST {{baseUrl}}/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"table_label":"1","items":[{"product_id":1,"quantity":2}]}

@@ -1,0 +1,11 @@
+.git
+.kiro
+.env
+*.md
+requests.http
+docker-compose.yml
+.gocache
+.gomodcache
+.gopath
+*.exe
+*.log

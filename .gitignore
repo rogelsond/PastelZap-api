@@ -1,0 +1,16 @@
+# Env / secrets
+.env
+
+# Build artifacts
+/api
+/bin/
+*.exe
+coverage.out
+
+# Local Go caches (set via GOFLAGS/env for sandboxed builds)
+.gocache/
+.gomodcache/
+.gopath/
+
+# Logs
+*.log

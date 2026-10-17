@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment: { POSTGRES_USER: pedidos, POSTGRES_PASSWORD: pedidos, POSTGRES_DB: pedidos }
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgres://pedidos:pedidos@db:5432/pedidos?sslmode=disable
+      API_TOKEN: ${API_TOKEN:?defina API_TOKEN no .env}
+      LOG_LEVEL: debug
+    ports: ["8080:8080"]
+    depends_on: [db]
+volumes: { pgdata: {} }
